@@ -1,0 +1,12 @@
+[build]
+  functions = "netlify/functions"  # Path to your Go functions (if any)
+  publish = "."  # Root directory to serve the index.html file
+
+[build.environment]
+  GO_VERSION = "1.18"  # Specify the Go version if necessary
+
+# Optional redirect configuration if you want to manage API routes
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
