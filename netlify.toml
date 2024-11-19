@@ -1,12 +1,21 @@
 [build]
-  functions = "netlify/functions"  # Path to your Go functions (if any)
-  publish = "."  # Root directory to serve the index.html file
+  functions = "netlify-functions"
+  publish = "public"
+  command = "go build -o netlify-functions/app"
 
-[build.environment]
-  GO_VERSION = "1.18"  # Specify the Go version if necessary
+[context.production.environment]
+  PORT = "8080"  # This is important to make sure the backend runs on the specified port
 
-# Optional redirect configuration if you want to manage API routes
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  to = "/netlify-functions/api/$1"
   status = 200
+  force = true
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Access-Control-Expose-Headers = "Set-Cookie"
