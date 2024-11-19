@@ -9,7 +9,7 @@ import (
 
 func Routes(router *gin.Engine) {
 	router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5173"},
+		AllowOrigins:     []string{"https://jobwebsite-2ab125uck-ahmad-raza-khans-projects.vercel.app"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Content-Type", "Authorization"},
 		ExposeHeaders:    []string{"Set-Cookie"},
