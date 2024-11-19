@@ -25,8 +25,8 @@ func main() {
 		port = "8080"
 	}
 	routes.Routes(r)
-	r.POST("/", func(ctx *gin.Context) {
-		ctx.String(http.StatusOK, "Hello world")
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.String(http.StatusOK, "The site is working accurately!!😋")
 	})
 	log.Fatal(r.Run(port))
 }
