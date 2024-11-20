@@ -2,6 +2,7 @@ package api
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/ahmadraza-khan/jobwebsite/config"
@@ -24,8 +25,8 @@ func Handler() {
 		port = "8080"
 	}
 	routes.Routes(r)
-	r.GET("/", func(ctx *gin.Context) {
-		ctx.File("index.html")
+	r.GET("/", func(c *gin.Context) {
+		c.String(http.StatusOK, "The site is running smoothly!")
 	})
 	log.Fatal(r.Run(port))
 }
