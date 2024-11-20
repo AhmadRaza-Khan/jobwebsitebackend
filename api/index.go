@@ -1,10 +1,31 @@
-package handler
+package main
 
 import (
-	"fmt"
-	"net/http"
+	"log"
+	"os"
+
+	"github.com/ahmadraza-khan/jobwebsite/config"
+	"github.com/ahmadraza-khan/jobwebsite/routes"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "<h1>Hello from Go!</h1>")
+func init() {
+	if err := godotenv.Load(); err != nil {
+		log.Println("No .env file found")
+	}
+	config.ConnectDB()
+}
+
+func Handler() {
+	r := gin.Default()
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	routes.Routes(r)
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.File("index.html")
+	})
+	log.Fatal(r.Run(port))
 }
