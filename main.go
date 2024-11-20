@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 
 	"github.com/ahmadraza-khan/jobwebsite/config"
 	"github.com/ahmadraza-khan/jobwebsite/routes"
@@ -9,24 +10,22 @@ import (
 	"github.com/joho/godotenv"
 )
 
-var router *gin.Engine
-
 func init() {
 	if err := godotenv.Load(); err != nil {
-		log.Println("No .env file found, relying on system environment variables")
+		log.Println("No .env file found")
 	}
-
 	config.ConnectDB()
-
-	router = gin.Default()
-
-	routes.Routes(router)
-
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.File("index.html")
-	})
 }
 
-func Handler(c *gin.Context) {
-	router.HandleContext(c)
+func main() {
+	r := gin.Default()
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	routes.Routes(r)
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.File("index.html")
+	})
+	log.Fatal(r.Run(port))
 }
