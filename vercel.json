@@ -1,9 +1,14 @@
 {
-  "version": 2,
-  "routes": [
-      {
-          "src": "/api/(.*)",
-          "dest": "/api/index.go"
-      }
+  "trailingSlash": false,
+  "rewrites":
+  [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.go"
+    },
+    {
+      "source": "/.well-known/nostr.json",
+      "destination": "/api/index.go"
+    }
   ]
 }
