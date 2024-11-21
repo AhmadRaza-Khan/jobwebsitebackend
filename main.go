@@ -1,8 +1,8 @@
-package handler
+package main
 
 import (
 	"log"
-	"net/http"
+	"os"
 
 	"github.com/ahmadraza-khan/jobwebsite/config"
 	"github.com/ahmadraza-khan/jobwebsite/routes"
@@ -17,10 +17,15 @@ func init() {
 	config.ConnectDB()
 }
 
-func Handler() {
+func main() {
 	r := gin.Default()
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 	routes.Routes(r)
-	r.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "The site is running smoothly!")
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.File("./assets/index.html")
 	})
+	log.Fatal(r.Run(port))
 }
