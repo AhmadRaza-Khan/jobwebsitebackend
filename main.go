@@ -25,7 +25,7 @@ func main() {
 	}
 	routes.Routes(r)
 	r.GET("/", func(ctx *gin.Context) {
-		ctx.File("index.html")
+		ctx.File("./assets/index.html")
 	})
 	log.Fatal(r.Run(port))
 }
