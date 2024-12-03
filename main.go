@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 
 	"github.com/ahmadraza-khan/jobwebsite/config"
@@ -25,7 +26,7 @@ func main() {
 	}
 	routes.Routes(r)
 	r.GET("/", func(ctx *gin.Context) {
-		ctx.File("./assets/index.html")
+		ctx.String(http.StatusOK, "The website is running successfully!")
 	})
 	log.Fatal(r.Run(port))
 }
