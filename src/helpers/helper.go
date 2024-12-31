@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ahmadraza-khan/jobwebsite/models"
+	"github.com/ahmadraza-khan/jobwebsite/src/models"
 	"github.com/gin-gonic/gin"
 	"golang.org/x/crypto/bcrypt"
 )

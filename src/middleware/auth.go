@@ -8,8 +8,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/ahmadraza-khan/jobwebsite/config"
-	"github.com/ahmadraza-khan/jobwebsite/models"
+	"github.com/ahmadraza-khan/jobwebsite/src/config"
+	"github.com/ahmadraza-khan/jobwebsite/src/models"
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	"go.mongodb.org/mongo-driver/bson"

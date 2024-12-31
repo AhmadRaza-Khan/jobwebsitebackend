@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/ahmadraza-khan/jobwebsite/config"
-	"github.com/ahmadraza-khan/jobwebsite/routes"
+	"github.com/ahmadraza-khan/jobwebsite/src/config"
+	"github.com/ahmadraza-khan/jobwebsite/src/routes"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )

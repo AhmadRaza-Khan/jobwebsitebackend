@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/ahmadraza-khan/jobwebsite/config"
-	"github.com/ahmadraza-khan/jobwebsite/helpers"
-	"github.com/ahmadraza-khan/jobwebsite/models"
+	"github.com/ahmadraza-khan/jobwebsite/src/config"
+	"github.com/ahmadraza-khan/jobwebsite/src/helpers"
+	"github.com/ahmadraza-khan/jobwebsite/src/models"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

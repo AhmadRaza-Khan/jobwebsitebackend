@@ -1,8 +1,8 @@
 package routes
 
 import (
-	"github.com/ahmadraza-khan/jobwebsite/controllers"
-	"github.com/ahmadraza-khan/jobwebsite/middleware"
+	"github.com/ahmadraza-khan/jobwebsite/src/controllers"
+	"github.com/ahmadraza-khan/jobwebsite/src/middleware"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
